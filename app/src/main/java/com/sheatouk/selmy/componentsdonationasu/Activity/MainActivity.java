@@ -1,10 +1,11 @@
-package com.sheatouk.selmy.componentsdonationasu;
+package com.sheatouk.selmy.componentsdonationasu.Activity;
 
 import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.sheatouk.selmy.componentsdonationasu.R;
 import com.sheatouk.selmy.componentsdonationasu.Services.ScrapCompService;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,5 +1,6 @@
 package com.sheatouk.selmy.componentsdonationasu.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -65,9 +66,10 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(uid)){
-                    //TODO: goto profile
+                    //TODO: goto mainActivity
                 }else{
                     //TODO: goto setup
+                    startActivity(new Intent(SignInActivity.this,PersonalInfoActivity.class));
                 }
             }
             @Override
@@ -106,5 +108,10 @@ public class SignInActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @OnClick (R.id.create_account)
+    void signUp(){
+        startActivity(new Intent(this,SignUpActivity.class));
     }
 }

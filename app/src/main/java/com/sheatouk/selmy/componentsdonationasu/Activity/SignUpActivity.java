@@ -1,5 +1,6 @@
 package com.sheatouk.selmy.componentsdonationasu.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -60,9 +61,8 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    // TODO: dismiss dialogue
-                    String userId=mAuth.getCurrentUser().getUid();
                     // TODO : goto profile setup
+                    startActivity(new Intent(SignUpActivity.this,PersonalInfoActivity.class));
 
                 }else{
                     // TODO: dismiss dialogue
@@ -72,5 +72,9 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @OnClick (R.id.signin_back)
+    void signIn(){
+        startActivity(new Intent(this,SignInActivity.class));
     }
 }

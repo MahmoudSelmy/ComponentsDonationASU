@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/round"
-            android:text="Signup"
+            android:text="Sign Up"
             android:textStyle="bold"
             android:gravity="center"
             android:textColor="#fff"
@@ -168,7 +168,7 @@
             android:padding="16dp">
 
             <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
-                android:id="@+id/signin"
+                android:id="@+id/signin_back"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sheatouk.selmy.componentsdonationasu.Activity.PersonalInfoActivity">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:background="@drawable/t"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/imageView3" />
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_img"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/user"
+        app:civ_border_color="#cccccc"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.32999998" />
+    <com.andexert.library.RippleView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rv_color="@color/colorPrimary"
+        app:rv_framerate="10"
+        app:rv_rippleDuration="200"
+        app:rv_alpha="155"
+        app:rv_zoom="true"
+        android:id="@+id/myTextViewC"
+        android:layout_marginRight="2dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="2dp">
+
+        <com.sheatouk.selmy.componentsdonationasu.Util.MyEditText
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="UserName"
+            android:letterSpacing="0.025"
+            android:textColor="@color/weekcolor"
+            android:textColorHint="#ffffff"
+            android:textSize="30dp" />
+    </com.andexert.library.RippleView>
+    <com.andexert.library.RippleView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rv_color="@color/colorPrimary"
+        app:rv_framerate="10"
+        app:rv_rippleDuration="200"
+        app:rv_alpha="155"
+        app:rv_zoom="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="2dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="2dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myTextViewC"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp">
+
+        <com.sheatouk.selmy.componentsdonationasu.Util.MyEditText
+            android:id="@+id/profile_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.025"
+            android:text="Android Developer at Instabug"
+            android:textColor="@color/agendacolor"
+            android:textSize="20dp" />
+    </com.andexert.library.RippleView>
+    <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
+        android:layout_weight="1"
+        android:id="@+id/mail"
+        android:textSize="26dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textColor="#a2a1b8"
+        android:maxLength="12"
+        android:background="#0000"
+        android:padding="16dp"
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <com.andexert.library.RippleView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:rv_color="@color/colorPrimary"
+        app:rv_framerate="10"
+        app:rv_rippleDuration="200"
+        app:rv_alpha="155"
+        app:rv_zoom="true"
+        android:background="#0000"
+        android:layout_weight="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mail"
+        app:layout_constraintLeft_toRightOf="@+id/mail"
+        android:layout_marginRight="16dp">
+
+        <com.sheatouk.selmy.componentsdonationasu.Util.MyEditText
+            android:id="@+id/profile_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="pick exact location and edit address"
+            android:textColor="#181737"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp" />
+    </com.andexert.library.RippleView>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#dad8d8"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail"
+        android:id="@+id/view" />
+
+    <com.andexert.library.RippleView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_editor_absoluteY="400dp"
+        app:rv_alpha="155"
+        app:rv_color="@color/colorPrimary"
+        app:rv_framerate="10"
+        app:rv_rippleDuration="200"
+        app:rv_zoom="true"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
+            android:id="@+id/profile_save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/bottom"
+            android:background="@drawable/round"
+            android:gravity="center"
+            android:text="Save"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </com.andexert.library.RippleView>
+
+</android.support.constraint.ConstraintLayout>

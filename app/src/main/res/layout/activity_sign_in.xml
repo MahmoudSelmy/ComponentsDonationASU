@@ -127,7 +127,7 @@
             android:padding="16dp">
 
             <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
-                android:id="@+id/create"
+                android:id="@+id/create_account"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

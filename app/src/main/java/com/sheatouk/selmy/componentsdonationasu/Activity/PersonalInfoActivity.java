@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -24,6 +25,7 @@ import com.sheatouk.selmy.componentsdonationasu.POJO.UserModel;
 import com.sheatouk.selmy.componentsdonationasu.R;
 import com.sheatouk.selmy.componentsdonationasu.Util.Constant;
 import com.sheatouk.selmy.componentsdonationasu.Util.MyEditText;
+import com.sheatouk.selmy.componentsdonationasu.Util.SheamusDialog;
 import com.sheatouk.selmy.componentsdonationasu.Util.Utils;
 
 import butterknife.BindView;
@@ -39,12 +41,13 @@ public class PersonalInfoActivity extends AppCompatActivity {
 
     private LatLng location;
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListner;
     private DatabaseReference mdatabase;
     private final int GALLERY_REQUEST = 1;
     private final int PLACE_PICKER_REQUEST = 2;
     private Uri imgUri=null;
     private StorageReference fireStorage;
+
+    private SheamusDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +60,9 @@ public class PersonalInfoActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         fireStorage= FirebaseStorage.getInstance().getReference();
 
+        dialog = new SheamusDialog(this);
+        //dialog.setMessage("wait..");
+        dialog.setCancelable(false);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -71,6 +77,8 @@ public class PersonalInfoActivity extends AppCompatActivity {
             Place place = PlacePicker.getPlace(this, data);
             if (place != null) {
                 location = place.getLatLng();
+                String addressSt = place.getAddress().toString();
+                address.setText(addressSt);
             }
         }
     }
@@ -82,19 +90,24 @@ public class PersonalInfoActivity extends AppCompatActivity {
     }
     @OnClick(R.id.profile_save_btn)
     void saveProfileInfo(){
+        //TODO: show dialogue
+        dialog.show();
         String nameSt = name.getText().toString();
         String positionSt = position.getText().toString();
         String addressSt = address.getText().toString();
         if (TextUtils.isEmpty(nameSt) || TextUtils.isEmpty(positionSt) || TextUtils.isEmpty(addressSt) || imgUri == null){
             //TODO : dialogue
+            dialog.dismiss();
             return;
         }
         if (!Utils.checkInternetConenction(this)){
             //TODO : dialogue
+            dialog.dismiss();
             return;
         }
         if (mAuth.getCurrentUser() == null){
             //TODO : dialogue
+            dialog.dismiss();
             return;
         }
         String uid = mAuth.getCurrentUser().getUid();
@@ -111,19 +124,21 @@ public class PersonalInfoActivity extends AppCompatActivity {
                 UserModel newUser = new UserModel(nameSt,positionSt,downloadUrl.toString(),addressSt,location);
                 newUserFB.setValue(newUser);
                 //TODO: dismiss dialogue | goto mainActivity
-
+                dialog.dismiss();
+                startActivity(new Intent(PersonalInfoActivity.this,MainActivity.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 //TODO: Failure Dialogue
-
+                dialog.dismiss();
             }
         });
     }
 
     @OnClick(R.id.profile_location)
     void pickPlace(){
+        Log.d("SignUp","5");
         if (location == null){
             locationPlacesIntent();
         }

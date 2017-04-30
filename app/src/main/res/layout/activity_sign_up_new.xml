@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_pic"
-    tools:context="com.sheatouk.selmy.componentsdonationasu.Activity.SignInActivity">
+    tools:context="com.sheatouk.selmy.componentsdonationasu.Activity.SignUpActivity">
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -33,7 +33,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.42000002" />
+        app:layout_constraintVertical_bias="0.38"
+        app:layout_constraintHorizontal_bias="0.501" />
     <TextView
         android:id="@+id/holliday"
         android:layout_below="@+id/logo"
@@ -47,12 +48,30 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.49"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.57" />
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/myTextView2" />
+    <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
+        android:layout_above="@+id/main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/myTextView2"
+        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -67,12 +86,11 @@
         android:id="@+id/linearLayout"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
-
         <ImageView
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/username"
+            android:src="@drawable/email"
             android:layout_gravity="center"
             android:paddingLeft="10dp"/>
         <com.sheatouk.selmy.componentsdonationasu.Util.MyEditText
@@ -81,12 +99,13 @@
             android:layout_height="50dp"
             android:background="#00000000"
             android:paddingLeft="10dp"
-            android:hint="Email"
+            android:letterSpacing="0.1"
+            android:hint="Email Address"
             android:textColor="#fff"
             android:textColorHint="#fff"
             android:drawablePadding="10dp"
             android:textSize="13dp"
-            android:id="@+id/email_sign"
+            android:id="@+id/email_reg"
             />
     </LinearLayout>
     <LinearLayout
@@ -101,9 +120,45 @@
         android:id="@+id/linearLayout2"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.0">
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/password"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"/>
+        <com.sheatouk.selmy.componentsdonationasu.Util.MyEditText
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:paddingLeft="10dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#fff"
+            android:letterSpacing="0.1"
+            android:textColorHint="#fff"
+            android:drawablePadding="10dp"
+            android:textSize="13dp"
+            android:id="@+id/pass_reg"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/roundwhite"
+        app:layout_editor_absoluteY="500dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:id="@+id/linearLayout3">
 
         <ImageView
             android:id="@+id/pass"
@@ -117,30 +172,34 @@
 
 
         <com.sheatouk.selmy.componentsdonationasu.Util.MyEditText
-            android:id="@+id/pass_sign"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="1"
             android:background="#00000000"
-            android:hint="Password"
-            android:inputType="textPassword"
             android:paddingLeft="10dp"
-            android:textColor="#fff"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
             android:textColorHint="#fff"
-            android:textSize="13dp" />
+            android:textColor="#fff"
+            android:textSize="13dp"
+            android:letterSpacing="0.1"
+            android:layout_weight="1"
+            android:id="@+id/con_pass_reg"
+            />
     </LinearLayout>
+
     <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
-        android:id="@+id/create_account"
+        android:id="@+id/signin_back"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="Signin !"
         android:textColor="#FFF"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign" />
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_reg"
+        android:layout_marginStart="8dp" />
     <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -149,18 +208,19 @@
         android:gravity="end"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/create_account"
-        android:id="@+id/myTextView" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/signin_back"
+        android:id="@+id/myTextView"
+        android:layout_marginEnd="8dp" />
 
     <com.sheatouk.selmy.componentsdonationasu.Util.MyTextView
-        android:id="@+id/btn_sign"
+        android:id="@+id/sign_up_reg"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_above="@+id/bottom"
 
         android:background="@drawable/round"
         android:gravity="center"
-        android:text="Sign In"
+        android:text="Sign Up"
         android:textColor="#fff"
         android:textStyle="bold"
         android:layout_marginLeft="16dp"
@@ -173,21 +233,23 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.22000003" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.24000001" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline2"
         app:layout_constraintGuide_percent="0.5"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="329dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline5"
-        app:layout_constraintGuide_percent="0.85"
+        app:layout_constraintGuide_percent="0.94"
         android:orientation="horizontal" />
 
 </android.support.constraint.ConstraintLayout>

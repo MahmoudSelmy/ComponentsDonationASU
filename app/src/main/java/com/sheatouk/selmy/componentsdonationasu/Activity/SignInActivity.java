@@ -67,6 +67,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(uid)){
                     //TODO: goto mainActivity
+                    startActivity(new Intent(SignInActivity.this,MainActivity.class));
                 }else{
                     //TODO: goto setup
                     startActivity(new Intent(SignInActivity.this,PersonalInfoActivity.class));

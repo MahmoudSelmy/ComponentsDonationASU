@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SearchLayout">
+        <item name="search_voice" format="boolean" >false</item>
+    </style>
+
 </resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- android:id="@+id/group_toolbar" -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_toolbar"
+            android:title="toolbar" />
+        <item
+            android:id="@+id/nav_item_menu_item"
+            android:title="toolbar" />
+    </group>
+
+    <!-- android:id="@+id/group_menu_item" -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_item_history"
+            android:title="history" />
+        <item
+            android:id="@+id/nav_item_filters"
+            android:title="history" />
+    </group>
+
+</menu>

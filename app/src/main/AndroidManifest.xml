@@ -3,12 +3,6 @@
     package="com.sheatouk.selmy.componentsdonationasu">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="" />
-    <meta-data
-        android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version" />
 
     <application
         android:name=".Util.ComponatesDonationASU"
@@ -20,20 +14,29 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.MainActivity"></activity>
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDs-3thlJZtesScQApu3bgJojvuQ9y8zFY" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <service
             android:name=".Services.ScrapCompService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activity.SignInActivity">
+        <activity android:name=".Activity.SignInActivity" />
+        <activity android:name=".Activity.SignUpActivity" />
+        <activity android:name=".Activity.PersonalInfoActivity" />
+        <activity android:name=".Activity.MenuItemActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.PersonalInfoActivity"></activity>
+        <activity android:name=".Activity.SearchResultsActivity"></activity>
     </application>
 
 </manifest>

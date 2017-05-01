@@ -124,8 +124,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     // setToolbar
     protected void setViewPager() {
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SearchFragment(), getString(R.string.installed));
-        adapter.addFragment(new SearchFragment(), getString(R.string.all));
+        adapter.addFragment(new SearchFragment(R.string.installed), getString(R.string.installed));
+        adapter.addFragment(new SearchFragment(R.string.all), getString(R.string.all));
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);

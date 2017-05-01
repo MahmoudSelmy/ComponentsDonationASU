@@ -17,7 +17,12 @@ import java.util.Random;
  */
 public class SearchFragment extends Fragment {
 
+    private int Flag ;
     public SearchFragment() {
+    }
+
+    public SearchFragment(int installed) {
+        Flag = installed;
     }
 
     @Override
@@ -27,7 +32,6 @@ public class SearchFragment extends Fragment {
         List<String> list = new ArrayList<>(30);
         Random random = new Random();
         while (list.size() < 30) {
-            //list.add(BaseActivity.sCheeseStrings[random.nextInt(BaseActivity.sCheeseStrings.length)]);
             list.add(strings[random.nextInt(strings.length)]);
         }
 

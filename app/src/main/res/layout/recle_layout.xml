@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline12"
-        app:layout_constraintGuide_percent="0.46"
+        app:layout_constraintGuide_percent="0.56"
         android:orientation="horizontal" />
 
     <View
@@ -144,13 +144,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline14"
-        app:layout_constraintGuide_percent="0.46"
+        app:layout_constraintGuide_percent="0.56"
         android:orientation="horizontal" />
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline15"
-        app:layout_constraintGuide_percent="0.52"
+        app:layout_constraintGuide_percent="0.62"
         android:orientation="horizontal" />
 </android.support.constraint.ConstraintLayout>
 

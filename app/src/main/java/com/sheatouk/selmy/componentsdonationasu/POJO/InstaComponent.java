@@ -6,13 +6,15 @@ package com.sheatouk.selmy.componentsdonationasu.POJO;
 
 public class InstaComponent {
     String productId,ownerId;
+    Boolean available;
 
     public InstaComponent() {
     }
 
-    public InstaComponent(String productId, String ownerId) {
+    public InstaComponent(String productId, String ownerId,Boolean available) {
         this.productId = productId;
         this.ownerId = ownerId;
+        this.available = available;
     }
 
     public String getProductId() {
@@ -29,5 +31,13 @@ public class InstaComponent {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
     }
 }

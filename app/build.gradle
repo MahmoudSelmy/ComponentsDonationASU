@@ -57,6 +57,7 @@ dependencies {
     compile 'com.github.florent37:arclayout:1.0.2'
     compile 'com.lapism:searchview:4.0'
     compile 'com.github.clans:fab:1.6.4'
+    compile 'me.grantland:autofittextview:0.2.+'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

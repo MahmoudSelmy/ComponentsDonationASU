@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.sheatouk.selmy.componentsdonationasu.POJO.FirebaseLatling;
 import com.sheatouk.selmy.componentsdonationasu.POJO.UserModel;
 import com.sheatouk.selmy.componentsdonationasu.R;
 import com.sheatouk.selmy.componentsdonationasu.Util.Constant;
@@ -121,7 +122,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Uri downloadUrl=taskSnapshot.getDownloadUrl();
                 DatabaseReference newUserFB =mdatabase.child(uid);
-                UserModel newUser = new UserModel(nameSt,positionSt,downloadUrl.toString(),addressSt,location);
+                UserModel newUser = new UserModel(nameSt,positionSt,downloadUrl.toString(),addressSt,new FirebaseLatling(location.latitude,location.longitude));
                 newUserFB.setValue(newUser);
                 //TODO: dismiss dialogue | goto mainActivity
                 dialog.dismiss();

@@ -1,19 +1,17 @@
 package com.sheatouk.selmy.componentsdonationasu.POJO;
 
-import com.google.android.gms.maps.model.LatLng;
-
 /**
  * Created by pc on 28/04/2017.
  */
 
 public class UserModel {
     String name,position,imageUrl,address;
-    LatLng location;
+    FirebaseLatling location;
 
     public UserModel() {
     }
 
-    public UserModel(String name, String position, String imageUrl, String address, LatLng location) {
+    public UserModel(String name, String position, String imageUrl, String address, FirebaseLatling location) {
         this.name = name;
         this.position = position;
         this.imageUrl = imageUrl;
@@ -53,11 +51,11 @@ public class UserModel {
         this.address = address;
     }
 
-    public LatLng getLocation() {
+    public FirebaseLatling getLocation() {
         return location;
     }
 
-    public void setLocation(LatLng location) {
+    public void setLocation(FirebaseLatling location) {
         this.location = location;
     }
 }

@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="weekcolor">#fff</color>
     <color name="agendacolor">#8E9097</color>
+    <color name="availableColor">#00C853</color>
+    <color name="notAvailble">#DD2C00</color>
+    <color name="div">#d5c5a4</color>
+    <color name="text">#32353e</color>
+    <color name="textred">#ca362c</color>
+    <color name="textwhite">#fff</color>
 </resources>

@@ -8,4 +8,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="warning_msg" >1) you must go to donator\'s address before deadline of
+    your application "day after request"\n
+        2) you must commit to return the requested component before the deadline or you would be blacklisted
+    </string>
 </resources>

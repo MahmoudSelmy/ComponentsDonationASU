@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.MainActivity"></activity>
+        <activity android:name=".Activity.MainActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -36,7 +36,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.SearchResultsActivity"></activity>
+        <activity android:name=".Activity.SearchResultsActivity" />
+        <activity android:name=".Activity.ProfileActivity"></activity>
     </application>
 
 </manifest>

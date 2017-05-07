@@ -5,42 +5,43 @@ package com.sheatouk.selmy.componentsdonationasu.POJO;
  */
 
 public class Date {
-    String day,month,year;
+    int day,month,year;
 
     public Date() {
     }
 
-    public Date(String name, String month, String year) {
-        this.day = name;
+    public Date(int day, int month, int year) {
+        this.day = day;
         this.month = month;
         this.year = year;
     }
 
-    public String getDay() {
+    public int getDay() {
         return day;
     }
 
-    public void setDay(String name) {
-        this.day = name;
+    public void setDay(int day) {
+        this.day = day;
     }
 
-    public String getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(int month) {
         this.month = month;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
+
     private Boolean equals(Date date){
-        if (month.equals(date.getMonth()) && day.equals(date.getDay()) && year.equals(date.getYear())){
+        if (month == (date.getMonth()) && day == date.getDay() && year == date.getYear()){
             return true;
         }
         return false;

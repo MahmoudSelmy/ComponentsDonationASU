@@ -1,4 +1,4 @@
-package com.sheatouk.selmy.componentsdonationasu;
+package com.sheatouk.selmy.componentsdonationasu.DialogFragments;
 
 
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.sheatouk.selmy.componentsdonationasu.R;
 
 import java.util.ArrayList;
 import java.util.List;

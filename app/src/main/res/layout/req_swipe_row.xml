@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="150dp"
+    android:id="@+id/req_swipe"
+    swipe:leftEdgeSwipeOffset="0dp"
+    swipe:rightEdgeSwipeOffset="0dp">
+
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/req_accept"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:text="Accept"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/req_reject"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_dark"
+            android:gravity="center"
+            android:text="Reject"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <include
+        layout="@layout/req_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?android:selectableItemBackground"
+
+        />
+</com.daimajia.swipe.SwipeLayout>

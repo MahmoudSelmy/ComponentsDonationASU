@@ -1,17 +1,15 @@
 package com.sheatouk.selmy.componentsdonationasu.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.GravityCompat;
 
 import com.sheatouk.selmy.componentsdonationasu.R;
+import com.sheatouk.selmy.componentsdonationasu.Services.DonationReqListner;
+import com.sheatouk.selmy.componentsdonationasu.Services.RepliesListnerService;
 
 public class MenuItemActivity extends BaseActivity {
-
-    @Override
-    protected int getNavItem() {
-        return NAV_ITEM_MENU_ITEM;
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,6 +18,8 @@ public class MenuItemActivity extends BaseActivity {
         setToolbar();
         setViewPager();
         setTitle("");
+        startService(new Intent(this, DonationReqListner.class));
+        startService(new Intent(this, RepliesListnerService.class));
         // invalidateOptionsMenu();
         // int mCurrentVersion = getIntent().getIntExtra(EXTRA_KEY_VERSION, SearchView.VERSION_TOOLBAR);
     }

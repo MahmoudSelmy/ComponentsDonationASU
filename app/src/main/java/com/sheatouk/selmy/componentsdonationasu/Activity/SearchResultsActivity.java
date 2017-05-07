@@ -47,6 +47,7 @@ public class SearchResultsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mInstaComp,mUsersDB;
     private FirebaseRecyclerAdapter<InstaComponent,OwnerViewHolder> firebaseRecyclerAdapter;
+    private Component component;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +81,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         firebaseRecyclerAdapter= new FirebaseRecyclerAdapter<InstaComponent, OwnerViewHolder>(
                 InstaComponent.class,//PoJo
                 R.layout.owners_row,//row view
-                OwnerViewHolder.class,//Hoder class
+                OwnerViewHolder.class,//Holder class
                 owners
         ) {
             @Override
@@ -89,7 +90,6 @@ public class SearchResultsActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         UserModel user = dataSnapshot.getValue(UserModel.class);
-
                         viewHolder.setOwnerName(user.getName());
                         viewHolder.setOwnerPosition(user.getPosition());
                         viewHolder.setOwnerPic(user.getImageUrl(),SearchResultsActivity.this);
@@ -130,16 +130,21 @@ public class SearchResultsActivity extends AppCompatActivity {
             return;
         }
         */
+        if (component.getName() == null){
+            //TODO : ERROR
+            Log.d("ERROR","NULL COMP");
+            return;
+        }
         String instaKey = firebaseRecyclerAdapter.getRef(instaKeyPos).getKey();
         FragmentManager fm = getSupportFragmentManager();
-        RequestDonationFragment editNameDialogFragment = RequestDonationFragment.newInstance(instaKey);
+        RequestDonationFragment editNameDialogFragment = RequestDonationFragment.newInstance(instaKey,component.getName());
         editNameDialogFragment.show(fm, "fragment_request_donation");
     }
     private void pickImage() {
         mCompDB.child(compKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Component component = dataSnapshot.getValue(Component.class);
+                component = dataSnapshot.getValue(Component.class);
                 setTitle(component.getName());
                 downloadImage("https:"+component.getImageUrl());
             }

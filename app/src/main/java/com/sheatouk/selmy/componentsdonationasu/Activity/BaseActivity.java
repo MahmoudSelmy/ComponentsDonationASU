@@ -33,7 +33,7 @@ import com.lapism.searchview.SearchItem;
 import com.lapism.searchview.SearchView;
 import com.sheatouk.selmy.componentsdonationasu.POJO.Component;
 import com.sheatouk.selmy.componentsdonationasu.R;
-import com.sheatouk.selmy.componentsdonationasu.SearchFragment;
+import com.sheatouk.selmy.componentsdonationasu.DialogFragments.SearchFragment;
 import com.sheatouk.selmy.componentsdonationasu.Util.Constant;
 import com.sheatouk.selmy.componentsdonationasu.Util.FragmentAdapter;
 
@@ -46,9 +46,6 @@ import java.util.List;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    @SuppressWarnings("WeakerAccess")
-    protected static final int NAV_ITEM_INVALID = -1;
-    protected static final int NAV_ITEM_MENU_ITEM = 1;
     protected static final String EXTRA_KEY_TEXT = "text";
     private static final String EXTRA_KEY_VERSION = "version";
     private static final String EXTRA_KEY_THEME = "theme";
@@ -61,10 +58,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     private SearchHistoryTable mHistoryDatabase;
 
     // ---------------------------------------------------------------------------------------------
-    protected int getNavItem() {
-        return NAV_ITEM_INVALID;
-    }
-
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -165,16 +158,12 @@ public abstract class BaseActivity extends AppCompatActivity {
             navigationView.setNavigationItemSelectedListener(item -> {
                 int id = item.getItemId();
 
-                if (id == R.id.nav_item_toolbar || id == R.id.nav_item_filters) {
-
+                if (id == R.id.nav_item_requests) {
+                    startActivity(new Intent(this,reqListActivity.class));
                 }
 
-                if (id == R.id.nav_item_menu_item) {
-
-                }
-
-                if (id == R.id.nav_item_history) {
-
+                if (id == R.id.nav_item_menu_replies) {
+                    startActivity(new Intent(this,RepliesActivity.class));
                 }
 
                 item.setChecked(false);

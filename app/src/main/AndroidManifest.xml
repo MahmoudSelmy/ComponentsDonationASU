@@ -26,18 +26,32 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activity.SignInActivity" />
-        <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.PersonalInfoActivity" />
-        <activity android:name=".Activity.MenuItemActivity">
+        <activity android:name=".Activity.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.SignUpActivity" />
+        <activity android:name=".Activity.PersonalInfoActivity" />
+        <activity android:name=".Activity.MenuItemActivity" />
         <activity android:name=".Activity.SearchResultsActivity" />
-        <activity android:name=".Activity.ProfileActivity"></activity>
+        <activity android:name=".Activity.ProfileActivity" />
+
+        <service
+            android:name=".Services.DonationReqListner"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".Activity.reqListActivity" />
+
+        <service
+            android:name=".Services.RepliesListnerService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".Activity.RepliesActivity"></activity>
     </application>
 
 </manifest>

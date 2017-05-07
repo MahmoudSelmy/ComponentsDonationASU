@@ -3,7 +3,6 @@ package com.sheatouk.selmy.componentsdonationasu.Util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.DisplayMetrics;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,12 +12,6 @@ import java.util.regex.Pattern;
  */
 
 public class Utils {
-
-    public static int dbTopixel(int dp , Context ctx){
-        DisplayMetrics metrics = ctx.getResources().getDisplayMetrics();
-        float fpixels = metrics.density * dp;
-        return  (int) (fpixels + 0.5f);
-    }
 
     public static boolean isEmailValid(String email) {
         boolean isValid = false;

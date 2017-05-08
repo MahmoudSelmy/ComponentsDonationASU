@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:padding="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <me.grantland.widget.AutofitTextView
+            android:id="@+id/reply_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:text="Mahmoud Accepted Your Request To Take Arduino Uno"
+            android:textSize="20sp"
+            app:minTextSize="15sp" />
+
+        <com.github.curioustechizen.ago.RelativeTimeTextView
+            android:id="@+id/reply_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="yesterday"
+            android:textColor="#9E9E9E"
+            android:layout_gravity="right"
+            android:layout_marginBottom="5dp"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,4 +1,4 @@
-package com.sheatouk.selmy.componentsdonationasu.DialogFragments;
+package com.sheatouk.selmy.componentsdonationasu.Fragments;
 
 
 import android.app.DatePickerDialog;
@@ -119,7 +119,7 @@ public class RequestDonationFragment extends DialogFragment {
         DatabaseReference donationDB = FirebaseDatabase.getInstance().getReference().child(Constant.FIREBASE_DONATIONS_DB_KEY).push();
         String donationKey = donationDB.getKey();
         donationDB.setValue(donation);
-        DatabaseReference requestDB = FirebaseDatabase.getInstance().getReference().child(Constant.FIREBASE_REQ_DONATIONS_DB_KEY).child(mAuth.getCurrentUser().getUid());
+        DatabaseReference requestDB = FirebaseDatabase.getInstance().getReference().child(Constant.FIREBASE_REQ_DONATIONS_DB_KEY).child(instaComponent.getOwnerId());
         ReqDonation reqDonation = new ReqDonation(donationKey,-1* System.currentTimeMillis());
         requestDB.push().setValue(reqDonation);
         dismiss();

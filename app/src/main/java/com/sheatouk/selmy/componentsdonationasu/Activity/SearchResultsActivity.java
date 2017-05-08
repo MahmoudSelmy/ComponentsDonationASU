@@ -1,6 +1,7 @@
 package com.sheatouk.selmy.componentsdonationasu.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.sheatouk.selmy.componentsdonationasu.DialogFragments.RequestDonationFragment;
+import com.sheatouk.selmy.componentsdonationasu.Fragments.RequestDonationFragment;
 import com.sheatouk.selmy.componentsdonationasu.POJO.Component;
 import com.sheatouk.selmy.componentsdonationasu.POJO.InstaComponent;
 import com.sheatouk.selmy.componentsdonationasu.POJO.UserModel;
@@ -95,17 +97,24 @@ public class SearchResultsActivity extends AppCompatActivity {
                         viewHolder.setOwnerPic(user.getImageUrl(),SearchResultsActivity.this);
                         viewHolder.setOwnerAvailable(model.getAvailable(),SearchResultsActivity.this);
                         viewHolder.getOwnerPicView().setOnClickListener(v -> {
-                            createRequestDonation(position,model.getOwnerId());
-                            /*
                             Intent intent =  new Intent(SearchResultsActivity.this,ProfileActivity.class);
                             Bundle bundle = new Bundle();
-                            bundle.putString(Constant.FIREBASE_USER_ID,user.getName());
+                            bundle.putString(Constant.FIREBASE_USER_ID,model.getOwnerId());
                             intent.putExtras(bundle);
                             startActivity(intent);
-                            */
+
                         });
                         viewHolder.getAvailableView().setOnClickListener(v -> {
-
+                            //Log.d("CHECKKEY","0 key = " + firebaseRecyclerAdapter.getRef(position).getKey() +" Auth = " + mAuth.getCurrentUser().getUid());
+                            if (dataSnapshot.getKey().equals(mAuth.getCurrentUser().getUid())) {
+                                Log.d("CHECKKEY","1");
+                                Toast.makeText(SearchResultsActivity.this, "it's your component", Toast.LENGTH_SHORT).show();
+                            }
+                            else if (model.getAvailable()) {
+                                createRequestDonation(position, model.getOwnerId());
+                            }
+                            else
+                                Toast.makeText(SearchResultsActivity.this,"this component not available now",Toast.LENGTH_SHORT).show();
                         });
                     }
 

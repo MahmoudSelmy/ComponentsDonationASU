@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,9 +32,9 @@ import com.lapism.searchview.SearchAdapter;
 import com.lapism.searchview.SearchHistoryTable;
 import com.lapism.searchview.SearchItem;
 import com.lapism.searchview.SearchView;
+import com.sheatouk.selmy.componentsdonationasu.Fragments.SearchFragment;
 import com.sheatouk.selmy.componentsdonationasu.POJO.Component;
 import com.sheatouk.selmy.componentsdonationasu.R;
-import com.sheatouk.selmy.componentsdonationasu.DialogFragments.SearchFragment;
 import com.sheatouk.selmy.componentsdonationasu.Util.Constant;
 import com.sheatouk.selmy.componentsdonationasu.Util.FragmentAdapter;
 
@@ -117,8 +118,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     // setToolbar
     protected void setViewPager() {
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SearchFragment(R.string.installed), getString(R.string.installed));
-        adapter.addFragment(new SearchFragment(R.string.all), getString(R.string.all));
+        adapter.addFragment(new SearchFragment(R.string.in_string), getString(R.string.in_string));
+        adapter.addFragment(new SearchFragment(R.string.out_string), getString(R.string.out_string));
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
@@ -130,6 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     // ---------------------------------------------------------------------------------------------
     private void setDrawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+
         if (mDrawerLayout != null && mToolbar != null) {
             mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open, R.string.close) {
                 @Override
@@ -159,13 +161,25 @@ public abstract class BaseActivity extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.nav_item_requests) {
-                    startActivity(new Intent(this,reqListActivity.class));
+                    startActivity(new Intent(this,ReqListActivity.class));
                 }
 
                 if (id == R.id.nav_item_menu_replies) {
                     startActivity(new Intent(this,RepliesActivity.class));
                 }
-
+                if (id == R.id.nav_item_menu_myprofile) {
+                    FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                    Intent intent =  new Intent(BaseActivity.this,ProfileActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString(Constant.FIREBASE_USER_ID,mAuth.getCurrentUser().getUid());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+                if (id == R.id.nav_item_menu_sign_out) {
+                    FirebaseAuth mAuth=FirebaseAuth.getInstance();
+                    mAuth.signOut();
+                    startActivity(new Intent(this,SignInActivity.class));
+                }
                 item.setChecked(false);
                 mDrawerLayout.closeDrawers();
                 mDrawerLayout.closeDrawer(GravityCompat.START);

@@ -126,7 +126,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
                 newUserFB.setValue(newUser);
                 //TODO: dismiss dialogue | goto mainActivity
                 dialog.dismiss();
-                startActivity(new Intent(PersonalInfoActivity.this,MainActivity.class));
+                startActivity(new Intent(PersonalInfoActivity.this,MenuItemActivity.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

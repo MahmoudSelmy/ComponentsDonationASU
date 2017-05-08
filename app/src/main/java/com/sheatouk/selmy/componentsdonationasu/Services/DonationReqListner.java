@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.sheatouk.selmy.componentsdonationasu.Activity.reqListActivity;
+import com.sheatouk.selmy.componentsdonationasu.Activity.ReqListActivity;
 import com.sheatouk.selmy.componentsdonationasu.POJO.Donation;
 import com.sheatouk.selmy.componentsdonationasu.POJO.ReqDonation;
 import com.sheatouk.selmy.componentsdonationasu.R;
@@ -92,7 +92,7 @@ public class DonationReqListner extends Service {
         if (donation == null)
             return;
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        Intent intent = new Intent(getApplicationContext(), reqListActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ReqListActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Log.d("NotificationLis",key);
         // TODO : setContent

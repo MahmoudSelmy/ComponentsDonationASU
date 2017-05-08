@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,7 +17,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.sheatouk.selmy.componentsdonationasu.POJO.Component;
 import com.sheatouk.selmy.componentsdonationasu.POJO.Date;
 import com.sheatouk.selmy.componentsdonationasu.POJO.Donation;
 import com.sheatouk.selmy.componentsdonationasu.POJO.InstaComponent;
@@ -29,19 +29,21 @@ import com.sheatouk.selmy.componentsdonationasu.Util.MyTextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class reqListActivity extends AppCompatActivity {
+public class ReqListActivity extends AppCompatActivity {
     @BindView(R.id.req_list) RecyclerView reqList;
+    @BindView(R.id.app_bar) Toolbar toolbar;
     private DatabaseReference mDonationDB;
-    private String compKey;
     private FirebaseAuth mAuth;
     private DatabaseReference mReqDonations,repliesDB;
     private FirebaseRecyclerAdapter<ReqDonation,ReqViewHolder> firebaseRecyclerAdapter;
-    private Component component;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_req_details);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
+        setTitle("Requests");
         mAuth=FirebaseAuth.getInstance();
         mDonationDB = FirebaseDatabase.getInstance().getReference().child(Constant.FIREBASE_DONATIONS_DB_KEY);
         mDonationDB.keepSynced(true);
@@ -111,12 +113,19 @@ public class reqListActivity extends AppCompatActivity {
                         });
                         viewHolder.compName.setText(donation.getProductName());
                         viewHolder.compName.setOnClickListener(v -> {
-                            Intent intent = new Intent(reqListActivity.this,ProfileActivity.class);
+                            Intent intent = new Intent(ReqListActivity.this,ProfileActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putString(Constant.FIREBASE__KEY,donation.getReqUserId());
                             startActivity(intent);
                         });
                         viewHolder.reqUserName.setText(donation.getReqUserName());
+                        viewHolder.reqUserName.setOnClickListener(v -> {
+                            Intent intent =  new Intent(ReqListActivity.this,ProfileActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putString(Constant.FIREBASE_USER_ID,donation.getReqUserId());
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                        });
                         viewHolder.setReqFrom(donation.getStart());
                         viewHolder.setReqTo(donation.getEnd());
 
@@ -132,9 +141,6 @@ public class reqListActivity extends AppCompatActivity {
         reqList.setAdapter(firebaseRecyclerAdapter);
     }
 
-    private void populateRow(ReqViewHolder viewHolder, Donation donation, String keyDonation, int position) {
-
-    }
 
     public static class ReqViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.req_swipe) SwipeLayout swipeLayout;
@@ -155,7 +161,7 @@ public class reqListActivity extends AppCompatActivity {
         }
 
         public void setReqTo(Date date) {
-            reqFrom.setText(date.getDay()+" - "+date.getMonth()+" - "+date.getYear());
+            reqTo.setText(date.getDay()+" - "+date.getMonth()+" - "+date.getYear());
         }
     }
 

@@ -1,6 +1,6 @@
 # ComponentsDonationASU
 ## ComDo App is an android application that allows to the users to share e-components with others 
-Every user add his components and if someone need it ,he send a request and the owner would reply to his request by accepting it or not
+Every user adds his components and if someone needs it ,he sends a request and the owner would reply to his request by accepting it or not
 ## Use Cases
 ### 1)	Create Account : 
                         just type your email and password then fill the personal data fields
